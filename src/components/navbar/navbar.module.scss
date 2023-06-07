@@ -1,1 +1,8 @@
-@import '../../styles/variables';
+@import '../../styles/variables';  
+
+.navbar {
+    width: 100%;
+    height: 50px;
+    background-color: white;
+    border: 1px solid $border-color;
+}
