@@ -1,9 +1,50 @@
-// Abstracts
-@import "./abstracts/variables";
-@import "./abstracts/mixins";
-@import "./abstracts/breakpoints";
+// Reset 
 
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
 
-// Base
-@import "../styles/base/reset";
-@import "../styles/base/base";
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+button {
+    border: none;
+    padding: 10px 20px;
+    background: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+h1, h2 {
+  font-family: 'Caveat Brush';
+}
+
+p, span, a, h3, h4, h5, h6 {
+  font-family: 'PT Sans Caption';
+}
+
+input {
+  border: none;
+}
