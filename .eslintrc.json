@@ -1,3 +1,9 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": "next/core-web-vitals",
+  "rules": {
+    "semi": "error",
+    "quotes": "error",
+    "comma-spacing": "error",
+    "object-curly-spacing": ["error", "always"]
+  }
 }
