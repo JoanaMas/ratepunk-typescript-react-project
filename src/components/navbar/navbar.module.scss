@@ -1,8 +1,21 @@
-@import '../../styles/variables';  
+@import "../../styles/abstracts/style.scss";
 
 .navbar {
-    width: 100%;
-    height: 50px;
-    background-color: white;
-    border: 1px solid $border-color;
+  width: 100%;
+  height: 70px;
+  background-color: white;
+  border: 1px solid $border-color;
+
+  .linksContainer {
+    @include flex-row;
+    gap: 40px;
+
+    // a {
+    //     color: $text-color-brighter;
+
+    //     &.active {
+    //         color: $call-to-action-blue-color;
+    //     }
+    // }
+  }
 }
