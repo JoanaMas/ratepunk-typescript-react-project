@@ -1,44 +1,65 @@
 "use client";
 
-import { FC, ReactElement } from "react";
+import { FC, ReactElement, useState } from "react";
 // Next.js
 import Image from "next/image";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 // Components
 import Container from "../container/Container";
-import NavLink from "./_navLink/NavLink";
-// Logo
+import DesktopLinks from "./_desktopLinks/DesktopLinks";
+import MobileLinks from "./_mobileLinks/MobileLinks";
+// Images
 import logo from "../../../public/assets/logo.svg";
+import menuIcon from "../../../public/assets/menu.svg";
+import closeIcon from "../../../public/assets/close.svg";
+
 // Style
 import styles from "./navbar.module.scss";
 
 
 const Navbar: FC = (): ReactElement => {
 
-  const pathname = usePathname();
+  const [openMenu, setOpenMenu] = useState<boolean>(false);
 
+  const handleMenuOpen = () => {
+    setOpenMenu(!openMenu);
+  };
 
 
   return (
 
-
     <nav className={styles.navbar}>
+
       <Container>
-        <div className={styles.logo}>
-          <Image
-            src={logo}
-            alt="logo"
-          />
-        </div>
+        <div className={styles.navContent}>
 
-        <div className={styles.linksContainer}>
-          <NavLink route="/">Chrome Extention</NavLink>
-          <NavLink route="#">Price Comparison</NavLink>
-          <NavLink route="#">Blog</NavLink>
-        </div>
+          <div className={styles.logo}>
+            <Image
+              src={logo}
+              alt="logo"
+            />
+          </div>
 
+          {/* Desktop */}
+          <DesktopLinks />
+
+
+          {/* Menu Icon */}
+          <div className={styles.menuIcon} onClick={handleMenuOpen}>
+            {openMenu
+              ? <Image src={closeIcon} alt="closeIcon" />
+              : <Image src={menuIcon} alt="menuIcon" />
+            }
+
+          </div>
+
+        </div>
       </Container>
+
+      {/* Mobile */}
+      <div className={openMenu ? "" : styles.displayNone}>
+        <MobileLinks />
+      </div>
+
     </nav>
 
   );

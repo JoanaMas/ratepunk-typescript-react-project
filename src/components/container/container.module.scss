@@ -1,12 +1,15 @@
+@import "../../styles/abstracts/style.scss";
+
 .containerCenter {
     width: 100%;
     height: 100%;
-    display: grid;
-    place-items: center;
+    @include flex-row;
+    justify-content: center;
 
     .container {
         width: 800px;
         height: 100%;
-        border: 1px solid green;
+        padding: 0 15px;
+        // border: 1px solid green;
     }
 }

@@ -1,0 +1,12 @@
+@import "../../../styles/abstracts/style.scss";
+
+.desktopLinksContainer {
+    .links {
+      display: none;
+      gap: 40px;
+
+      @include medium-screen {
+        @include flex-row;
+      }
+    }
+  }

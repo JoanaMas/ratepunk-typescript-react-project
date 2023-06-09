@@ -1,0 +1,18 @@
+@import "../../../styles/abstracts/style.scss";
+
+  // Mobile
+  .mobileMenuContainer {
+    width: 100%;
+    height: auto;
+
+    @include medium-screen {
+      display: none;
+    }
+
+    .links {
+      @include flex-column;
+      gap: 40px;
+      padding: 50px 0 10px 20px;
+      border-top: none;
+    }
+}

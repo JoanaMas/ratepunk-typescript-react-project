@@ -1,0 +1,22 @@
+// Small tablets and large smartphones
+$screen-xs: 360px;
+
+
+// Tablets and desktops
+$screen-md: 800px;
+
+
+
+
+// Breakpoints
+@mixin small-screen {
+    @media (min-width: $screen-xs) {
+        @content;
+    }
+}
+
+@mixin medium-screen {
+    @media (min-width: $screen-md) {
+        @content;
+    }
+}

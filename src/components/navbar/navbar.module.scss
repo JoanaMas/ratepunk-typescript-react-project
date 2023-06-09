@@ -2,20 +2,39 @@
 
 .navbar {
   width: 100%;
-  height: 70px;
+  height: 100%;
   background-color: white;
   border: 1px solid $border-color;
+  padding: 17px 0;
 
-  .linksContainer {
-    @include flex-row;
-    gap: 40px;
-
-    // a {
-    //     color: $text-color-brighter;
-
-    //     &.active {
-    //         color: $call-to-action-blue-color;
-    //     }
-    // }
+  @include medium-screen {
+    height: 70px;
+    border: none;
+    border-bottom: 1px solid $border-color;
   }
+
+  .navContent {
+    @include flex-row;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    flex: 1;
+  }
+
+  .menuIcon {
+    padding-right: 10px;
+
+    @include medium-screen {
+      display: none;
+    }
+  }
+
+  .displayNone {
+    display: none;
+  }
+
+  
 }
