@@ -1,6 +1,42 @@
-@import '../../../styles/abstracts/style.scss';
+@import "../../../styles/abstracts/style.scss";
 
 .visitStoreSection {
-    height: 100px;
-    background-color: $bg-dark-grey;
+  min-height: 120px;
+  background-color: $bg-dark-grey;
+  color: $bg-light-pink;
+  padding: 20px 0;
+
+  @include medium-screen {
+    height: 120px;
+  }
+
+  .storeCardsContainer {
+    height: 100%;
+    @include flex-column;
+    align-items: center;
+    gap: 20px;
+
+    @include medium-screen {
+      @include flex-row;
+      width: 100%;
+    }
+
+    .rating {
+        width: 100%;
+        text-align: center;
+      p {
+        letter-spacing: 0.3rem;
+        font-size: $text-small;
+
+        @include medium-screen {
+          font-size: $text-medium;
+        }
+
+        span {
+          padding-left: 10px;
+          letter-spacing: 0rem;
+        }
+      }
+    }
+  }
 }

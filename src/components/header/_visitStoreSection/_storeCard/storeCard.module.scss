@@ -1,0 +1,15 @@
+@import "../../../../styles/abstracts/style.scss";
+
+.storeCard {
+    min-width: 260px;
+    @include flex-row;
+    align-items: center;
+    border: 1px solid $text-color-darker;
+    padding: 5px 0px 10px 20px;
+    border-radius: 10px;
+    gap: 10px;
+        
+    span {
+        font-size: $text-small;
+    }
+}
