@@ -1,0 +1,31 @@
+@import "../../../../styles/abstracts/style.scss";
+
+.oneStepContainer {
+    @include flex-column;
+    align-items: center;
+    gap: 20px;
+
+    @include medium-screen {
+        @include flex-row;
+        justify-content: end;
+        gap: 40px;
+    }
+
+    .stepContent {
+        width: 50%;
+
+        h4 {
+            padding-bottom: 15px;
+            color: $call-to-action-blue-color;
+        }
+
+        * {
+            text-align: center;
+            @include medium-screen {
+                text-align: left;
+            }
+        }
+    } 
+}
+
+
