@@ -1,6 +1,117 @@
 @import "../../styles/abstracts/style.scss";
 
 .footer {
-    height: 250px;
+    min-height: 300px;
     background-color: $bg-light-pink;
+    color: $text-color-darker;
+    padding: 0 30px;
+
+    @include medium-screen {
+        height: 300px;
+    }
+
+    h4 {
+        font-size: $text-medium;
+        letter-spacing: 0.15rem;
+    }
+
+    span {
+        font-size: $text-small;
+        color: $text-color-brighter;
+    }
+
+    .footerContentContainer {
+        width: 100%;
+        height: 100%;
+        @include flex-column;
+        gap: 30px;
+        padding: 50px 0;
+
+        @include medium-screen {
+            @include flex-row;
+            gap: 60px;
+        }
+
+
+
+        .about {
+            @include flex-column;
+            justify-content: space-between;
+            
+            span {
+                font-size: $text-small;
+                color: $text-color-brighter;
+            }
+        }
+
+
+        
+        .links {
+            width: 60%;
+            @include flex-column;
+            justify-content: space-between;
+            font-size: $text-small;
+            gap: 15px;
+            color: $text-color-darker;
+
+            @include medium-screen {
+                gap: unset;
+            }
+
+            * {
+                color: $text-color-darker;
+            }
+
+            :nth-child(2) {
+                color: $call-to-action-blue-color;
+            }
+        }
+
+
+
+        .contact {
+            width: 60%;
+            @include flex-column;
+            justify-content: space-between;
+            font-size: $text-small;
+            gap: 30px;
+
+            h4 {
+                margin-bottom: 20px;
+            }
+
+            .email {
+                @include flex-row;
+                gap: 10px;
+                align-items: center;
+
+                a {
+                    color: $text-color-darker;
+                }
+            }
+
+            .socialLinks {
+                @include flex-row;
+                gap: 7px;
+                padding-bottom: 10px;
+
+                .link {
+                    width: 25px;
+                    height: 25px;
+                    background-color: $call-to-action-blue-color;
+                    border: 1px solid $bg-dark-grey;
+                    border-radius: 5px;
+                    @include flex-row;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+        }
+    }
+}
+
+
+// Utility classes
+.displayNone {
+    display: none;
 }
