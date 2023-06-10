@@ -33,9 +33,11 @@ table {
 }
 
 button {
-    border: none;
-    padding: 10px 20px;
+    border: 1px solid black;
+    width: 100%;
+    height: 40px;
     background: none;
+    border-radius: 5px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -46,10 +48,17 @@ h1, h2 {
   font-family: 'Caveat Brush';
 }
 
-p, span, a, h3, h4, h5, h6 {
+p, span, a, h3, h4, h5, h6, button, ::placeholder {
   font-family: 'PT Sans Caption';
 }
 
+p {
+  font-size: 10pt;
+  line-height: 1.3rem;
+}
+
 input {
-  border: none;
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
 }
