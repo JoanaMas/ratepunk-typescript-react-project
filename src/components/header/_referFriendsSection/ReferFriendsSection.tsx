@@ -1,6 +1,6 @@
 "use client";
 
-import React, { FC, ReactElement, useState, useEffect } from "react";
+import React, { FC, ReactElement, useState, useEffect, useRef } from "react";
 import { useWindowSize } from "@react-hook/window-size";
 import Image from "next/image";
 // Components
@@ -17,14 +17,54 @@ import styles from "./referFriendsSection.module.scss";
 
 const ReferFriendsSection: FC = (): ReactElement => {
 
+  const emailInputRef = useRef<HTMLInputElement>(null);
+  const [error, setError] = useState<string>("");
+
   const [windowWidth] = useWindowSize();
   const [screenWidth, setScreenWidth] = useState(0);
-  
+
   useEffect(() => {
     setScreenWidth(windowWidth);
   }, [windowWidth]);
 
-  
+
+  // API UPDATE REQUEST
+  const updateEmailData = async () => {
+
+    const binId = "6484ee76b89b1e2299acff2a";
+    const url = `https://api.jsonbin.io/v3/b/${binId}`;
+    const headers = {
+      "Content-Type": "application/json",
+      "X-Master-Key": "$2b$10$AKc9NTQ2AESKX3MjQqRjxu8QQdIwsJryvMMo84h4wIwHfH3sue0ey",
+    };
+
+
+    const updatedDdata = {
+      email: emailInputRef.current?.value,
+    };
+
+    const body = JSON.stringify(updatedDdata);
+
+    try {
+      const response = await fetch(url, {
+        method: "PUT",
+        headers,
+        body
+      });
+
+      if (response.ok) {
+        console.log("Data updated successfully");
+      } else {
+        throw new Error("Failed to update data on JSONBin");
+      }
+    } catch (error) {
+      console.error(error);
+      throw new Error("Failed to update data on JSONBin");
+    }
+  };
+
+
+
 
   return (
     <section className={styles.referFriendsSection}>
@@ -43,10 +83,10 @@ const ReferFriendsSection: FC = (): ReactElement => {
               <div className={styles.inputContainer}>
                 <span>Error state</span>
                 <div className={styles.inputWithIcon}>
-                  <input type="email" placeholder="Enter your email address" />
+                  <input type="email" placeholder="Enter your email address" ref={emailInputRef} />
                   <div className={styles.emailIcon}><Image src={emailIcon} alt="emailIcon" width={15} /></div>
                 </div>
-                <button>Get Referral Link</button>
+                <button onClick={updateEmailData}>Get Referral Link</button>
               </div>
 
 
@@ -61,7 +101,7 @@ const ReferFriendsSection: FC = (): ReactElement => {
                 <div className={styles.referralInput}>
                   <input type="text" placeholder="https://ratepunk.com/referral" />
                   <button>{screenWidth >= 800 ? "Copy" : "Copy URL"}</button>
-    
+
                 </div>
               </div>
 
