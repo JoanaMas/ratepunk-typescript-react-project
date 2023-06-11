@@ -16,6 +16,10 @@
     align-items: center;
     gap: 20px;
 
+    * {
+      color: white;
+    }
+
     @include medium-screen {
       @include flex-row;
       width: 100%;

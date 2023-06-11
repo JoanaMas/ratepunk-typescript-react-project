@@ -63,7 +63,9 @@
             }
 
             :nth-child(2) {
-                color: $call-to-action-blue-color;
+                @include medium-screen {
+                    color: $call-to-action-blue-color;
+                }
             }
         }
 

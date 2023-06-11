@@ -20,8 +20,13 @@ import styles from "./footer.module.scss";
 
 const Footer: FC = (): ReactElement => {
 
-
-  const [windowWidth] = useWindowSize();
+    // WINDO WIDTH ON RESIZE LOGIC
+    const [windowWidth] = useWindowSize();
+    const [screenWidth, setScreenWidth] = useState(0);
+  
+    useEffect(() => {
+      setScreenWidth(windowWidth);
+    }, [windowWidth]);
 
   return (
     <footer className={styles.footer}>
@@ -32,7 +37,7 @@ const Footer: FC = (): ReactElement => {
           <div className={styles.about}>
             <Image src={logoImage} alt="logo" width={100} />
             <p>Ratepunk compares hotel room prices across the major online travel agencies. When you search for a room, Ratepunk extension scans the top booking sites and runs a price comparison, so you can be confident in knowing you`re getting the best deal!</p>
-            <span className={windowWidth >= 800 ? "" : styles.displayNone}>© 2021 Ratepunk. All Rights Reserved.</span>
+            <span className={screenWidth >= 800 ? "" : styles.displayNone}>© 2021 Ratepunk. All Rights Reserved.</span>
           </div>
 
 
@@ -66,7 +71,7 @@ const Footer: FC = (): ReactElement => {
             </div>
           </div>
 
-          <span className={windowWidth <= 800 ? "" : styles.displayNone}>© 2021 Ratepunk. All Rights Reserved.</span>
+          <span className={screenWidth <= 800 ? "" : styles.displayNone}>© 2021 Ratepunk. All Rights Reserved.</span>
 
 
 

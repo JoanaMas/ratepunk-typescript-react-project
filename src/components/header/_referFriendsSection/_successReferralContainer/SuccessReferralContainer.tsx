@@ -15,7 +15,6 @@ interface SuccessReferralContainerProps {
 const SuccessReferralContainer: FC<SuccessReferralContainerProps> = (props): ReactElement => {
 
     const { emailEnteredSuccessfullyState, referralInputValue, screenWidth, handleReferralLinkCopy } = props;
-
     
     return (
         <div className={emailEnteredSuccessfullyState ? styles.successInputContainer : styles.displayNone}>

@@ -24,6 +24,8 @@
       input {
         padding-left: 15px;
         border: 1px solid $text-color-brighter;
+        color: $text-color-brighter;
+        font-size: $text-medium;
 
         @include medium-screen {
           border-radius: 10px 0 0 10px;

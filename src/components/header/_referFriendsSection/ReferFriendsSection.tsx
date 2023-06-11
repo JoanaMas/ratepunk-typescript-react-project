@@ -153,7 +153,7 @@ const ReferFriendsSection: FC = (): ReactElement => {
               cardStepNumber={2}
               cardHeading="COLLECT COINS"
               cardText="Get 1 coin for each friend that installs our extension using your referral link."
-              otherClasses={windowWidth >= 800 ? styles.flexRowReverse : styles.flexColumn}
+              otherClasses={screenWidth >= 800 ? styles.flexRowReverse : styles.flexColumn}
             />
 
             <OneStepCard

@@ -20,12 +20,14 @@ const VisitStoreSection: FC = (): ReactElement => {
             storeImage={chromeIcon}
             imageAltText="chromeIcon"
             storeName="chrome web store"
+            linkURL="https://chrome.google.com/webstore/detail/ratepunk-same-hotel-way-c/gdaioanblcnghddimngklkhgcbomfdck?utm_source=ratepunk"
           />
 
           <StoreCard
             storeImage={appleIcon}
             imageAltText="appleIcon"
             storeName="apple app store"
+            linkURL="https://apps.apple.com/app/ratepunk/id1607823726"
           />
 
           <div className={styles.rating}>

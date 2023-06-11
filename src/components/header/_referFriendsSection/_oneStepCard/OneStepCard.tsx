@@ -1,4 +1,4 @@
-import React, { FC, ReactElement } from "react";
+import React, { FC, ReactElement, useEffect, useState } from "react";
 import { useWindowSize } from "@react-hook/window-size";
 import Image from "next/image";
 // Styles
@@ -18,11 +18,12 @@ const OneStepCard: FC<OneStepCardProps> = (props): ReactElement => {
 
     const { imageSource, imageAltText, cardStepNumber, cardHeading, cardText, otherClasses } = props;
 
+    // WINDO WIDTH ON RESIZE LOGIC
     const [windowWidth] = useWindowSize();
 
     return (
         <div className={`${styles.oneStepContainer} ${otherClasses}`}>
-            <Image src={imageSource} alt={imageAltText} width={ windowWidth > 800 ? 120 : 140} />
+            <Image src={imageSource} alt={imageAltText} width={windowWidth > 800 ? 100 : 140} />
             <div className={styles.stepContent}>
                 <h4>STEP {cardStepNumber}</h4>
                 <h2>{cardHeading}</h2>
