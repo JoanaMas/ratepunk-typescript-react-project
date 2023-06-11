@@ -1,0 +1,32 @@
+@import "../../../../styles/abstracts/style.scss";
+
+.inputContainer {
+    span {
+      display: block;
+      font-size: $text-extra-small;
+      color: $error-color;
+      padding-bottom: 10px;
+    }
+
+    .inputWithIcon {
+      position: relative;
+      margin-bottom: 15px;
+
+      input {
+        padding-left: 40px;
+        border: 1px solid $text-color-brighter;
+      }
+
+      .emailIcon {
+        position: absolute;
+        top: 30%;
+        left: 5%;
+      }
+    }
+
+    button {
+      background-color: $call-to-action-blue-color;
+      border-color: $text-color-darker;
+      color: white;
+    }
+  }

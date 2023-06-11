@@ -6,6 +6,8 @@ import Image from "next/image";
 // Components
 import Container from "@/components/container/Container";
 import OneStepCard from "./_oneStepCard/OneStepCard";
+import EmailInputContainer from "./_emailInputContainer/EmailInputContainer";
+import SuccessReferralContainer from "./_successReferralContainer/SuccessReferralContainer";
 // Images
 import emailIcon from "../../../../public/assets/email.svg";
 import inviteLetterIcon from "../../../../public/assets/invite.svg";
@@ -14,11 +16,11 @@ import voucherIcon from "../../../../public/assets/voucher.svg";
 import successIcon from "../../../../public/assets/success.svg";
 // Helpers
 import { validateEmail } from "@/helpers/validateEmail";
+import { handleReferralLinkCopy } from "@/helpers/handleReferralLinkCopy";
 // Styles
 import styles from "./referFriendsSection.module.scss";
 
 const ReferFriendsSection: FC = (): ReactElement => {
-
 
   // INPUT DATA
   const emailInputRef = useRef<HTMLInputElement>(null);
@@ -42,7 +44,9 @@ const ReferFriendsSection: FC = (): ReactElement => {
     setScreenWidth(windowWidth);
   }, [windowWidth]);
 
-  // API UPDATE REQUEST TO UPDATE EMAIL TO USER'S ENTERED EMAIL
+
+  // UPDATE REQUEST TO JSONBin.io
+
   const updateEmailData = async () => {
 
     const binId = "6484ee76b89b1e2299acff2a";
@@ -91,22 +95,11 @@ const ReferFriendsSection: FC = (): ReactElement => {
   };
 
 
-  // COPY REFERRAL LINK
-  const handleReferralLinkCopy = () => {
-      navigator.clipboard.writeText(referralInputValue)
-      .then(() => {
-        console.log("Text coppied successfully!");
-      });
-  };
-
-
   return (
     <section className={styles.referFriendsSection}>
       <Container>
         <div className={styles.contentContainer}>
-
           <div className={styles.referFriendsFormContainer}>
-
             <div className={styles.form}>
 
               <div className={styles.headingContainer}>
@@ -118,31 +111,22 @@ const ReferFriendsSection: FC = (): ReactElement => {
               {/* EMAIL INPUT CONTAINER */}
 
               {isLoading ? "Loading..." :
-                <div className={emailEnteredSuccessfully ? styles.displayNone : styles.inputContainer}>
-                  <span>{error}</span>
-                  <div className={styles.inputWithIcon}>
-                    <input type="email" placeholder="Enter your email address" ref={emailInputRef} />
-                    <div className={styles.emailIcon}><Image src={emailIcon} alt="emailIcon" width={15} /></div>
-                  </div>
-                  <button onClick={updateEmailData}>Get Referral Link</button>
-                </div>
+                    <EmailInputContainer
+                    errorMessage={error}
+                    emailEnteredSuccessfullyState={emailEnteredSuccessfully}
+                    emailInputRef={emailInputRef}
+                    updateEmailDate={updateEmailData}
+                    />
               }
 
 
               {/* SUCCESS CONTAINER */}
-              <div className={emailEnteredSuccessfully ? styles.successInputContainer : styles.displayNone}>
-
-                <div className={styles.successMessage}>
-                  <Image src={successIcon} alt="successIcon" width={25} />
-                  <span>Your email is confirmed!</span>
-                </div>
-
-                <div className={styles.referralInput}>
-                  <input type="text" value={referralInputValue} onChange={(e) => e.target.value}/>
-                  <button onClick={handleReferralLinkCopy}>{screenWidth >= 800 ? "Copy" : "Copy URL"}</button>
-
-                </div>
-              </div>
+              <SuccessReferralContainer
+              emailEnteredSuccessfullyState={emailEnteredSuccessfully}
+              referralInputValue={referralInputValue}
+              screenWidth={screenWidth}
+              handleReferralLinkCopy={() => handleReferralLinkCopy(referralInputValue)}
+              />
 
               <div className={styles.limits}>
                 <p>Limits on max rewards apply.</p>
