@@ -60,11 +60,19 @@ const ReferFriendsSection: FC = (): ReactElement => {
       email: emailInputRef.current?.value,
     };
 
+    // EMAIL INPUT VALIDATION & ERROR HANDLING
+    setError("");
+
+    if(updatedDdata.email?.length === 0) {
+      setError("Email field can not be empty");
+      return;
+    }
 
     if(!validateEmail(emailInputRef.current?.value)) {
       setError("Please enter correct email address");
       return;
     }
+
 
     const body = JSON.stringify(updatedDdata);
 
