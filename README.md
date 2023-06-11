@@ -31,7 +31,7 @@ Moreover, this project provided an excellent opportunity to gain proficiency in 
 
 <br>
 
-![](../ratepunk-typescript-react-project/public/assets/ratepunk-project-gif.gif)
+![See example](./public/assets/ratepunk-project.gif);
 
 <br>
 
