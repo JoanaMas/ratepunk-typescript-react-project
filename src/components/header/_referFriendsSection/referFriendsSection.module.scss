@@ -55,7 +55,7 @@
 
           .inputWithIcon {
             position: relative;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
 
             input {
               padding-left: 40px;
@@ -64,7 +64,7 @@
 
             .emailIcon {
               position: absolute;
-              top: 25%;
+              top: 30%;
               left: 5%;
             }
           }
@@ -84,7 +84,7 @@
             align-items: center;
             gap: 10px;
             font-weight: bold;
-            padding-bottom: 10px;
+            padding-bottom: 15px;
             font-size: $text-small;
           }
 
@@ -101,7 +101,6 @@
 
             input {
               padding-left: 15px;
-              height: 50px;
               border: 1px solid $text-color-brighter;
 
               @include medium-screen {
@@ -111,7 +110,6 @@
 
             button {
               width: 100%;
-              height: 50px;
               background-color: $call-to-action-blue-color;
               color: white;
               border-color: $text-color-brighter;

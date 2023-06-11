@@ -12,14 +12,28 @@ import inviteLetterIcon from "../../../../public/assets/invite.svg";
 import collectCoinIcon from "../../../../public/assets/collect-coins.svg";
 import voucherIcon from "../../../../public/assets/voucher.svg";
 import successIcon from "../../../../public/assets/success.svg";
+// Helpers
+import { validateEmail } from "@/helpers/validateEmail";
 // Styles
 import styles from "./referFriendsSection.module.scss";
 
 const ReferFriendsSection: FC = (): ReactElement => {
 
-  const emailInputRef = useRef<HTMLInputElement>(null);
-  const [error, setError] = useState<string>("");
 
+  // INPUT DATA
+  const emailInputRef = useRef<HTMLInputElement>(null);
+
+  // STATES
+  const [error, setError] = useState<string>("");
+  const [emailEnteredSuccessfully, setEmailEnteredSuccessfully] = useState<boolean>(false);
+  const [isLoading, setLoading] = useState<boolean>(false);
+
+  // EMAIL VALIDATION
+  useEffect(() => {
+    validateEmail(emailInputRef.current?.value);
+  }, [emailInputRef.current?.value]);
+
+  // WINDO WIDTH ON RESIZE LOGIC
   const [windowWidth] = useWindowSize();
   const [screenWidth, setScreenWidth] = useState(0);
 
@@ -27,8 +41,7 @@ const ReferFriendsSection: FC = (): ReactElement => {
     setScreenWidth(windowWidth);
   }, [windowWidth]);
 
-
-  // API UPDATE REQUEST
+  // API UPDATE REQUEST TO UPDATE EMAIL TO USER'S ENTERED EMAIL
   const updateEmailData = async () => {
 
     const binId = "6484ee76b89b1e2299acff2a";
@@ -38,14 +51,22 @@ const ReferFriendsSection: FC = (): ReactElement => {
       "X-Master-Key": "$2b$10$AKc9NTQ2AESKX3MjQqRjxu8QQdIwsJryvMMo84h4wIwHfH3sue0ey",
     };
 
-
     const updatedDdata = {
       email: emailInputRef.current?.value,
     };
 
+
+    if(!validateEmail(emailInputRef.current?.value)) {
+      setError("Please enter correct email address");
+      return;
+    }
+
     const body = JSON.stringify(updatedDdata);
 
     try {
+
+      setLoading(true);
+
       const response = await fetch(url, {
         method: "PUT",
         headers,
@@ -54,16 +75,19 @@ const ReferFriendsSection: FC = (): ReactElement => {
 
       if (response.ok) {
         console.log("Data updated successfully");
+        setEmailEnteredSuccessfully(true);
       } else {
         throw new Error("Failed to update data on JSONBin");
       }
+
     } catch (error) {
       console.error(error);
       throw new Error("Failed to update data on JSONBin");
+
+    } finally {
+      setLoading(false);
     }
   };
-
-
 
 
   return (
@@ -80,18 +104,23 @@ const ReferFriendsSection: FC = (): ReactElement => {
                 <p>Refer your friends to us and earn hotel booking vouchers. We`ll give you 1 coin for each friend that installs our extension. Minimum cash-out at 20 coins.</p>
               </div>
 
-              <div className={styles.inputContainer}>
-                <span>Error state</span>
-                <div className={styles.inputWithIcon}>
-                  <input type="email" placeholder="Enter your email address" ref={emailInputRef} />
-                  <div className={styles.emailIcon}><Image src={emailIcon} alt="emailIcon" width={15} /></div>
+
+              {/* EMAIL INPUT CONTAINER */}
+
+              {isLoading ? "Loading..." :
+                <div className={emailEnteredSuccessfully ? styles.displayNone : styles.inputContainer}>
+                  <span>{error}</span>
+                  <div className={styles.inputWithIcon}>
+                    <input type="email" placeholder="Enter your email address" ref={emailInputRef} />
+                    <div className={styles.emailIcon}><Image src={emailIcon} alt="emailIcon" width={15} /></div>
+                  </div>
+                  <button onClick={updateEmailData}>Get Referral Link</button>
                 </div>
-                <button onClick={updateEmailData}>Get Referral Link</button>
-              </div>
+              }
 
 
               {/* SUCCESS CONTAINER */}
-              <div className={styles.successInputContainer}>
+              <div className={emailEnteredSuccessfully ? styles.successInputContainer : styles.displayNone}>
 
                 <div className={styles.successMessage}>
                   <Image src={successIcon} alt="successIcon" width={25} />
