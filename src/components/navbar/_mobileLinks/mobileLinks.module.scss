@@ -3,16 +3,31 @@
   // Mobile
   .mobileMenuContainer {
     width: 100%;
-    height: auto;
+    height: 100vh;
 
     @include medium-screen {
       display: none;
     }
 
+    .linksContainer {
+      width: 100%;
+      height: auto;
+      border: 2px solid $border-color;
+      padding-bottom: 20px;
+      position: absolute;
+      top: 0;
+      z-index: -1;
+
+    }
+
     .links {
       @include flex-column;
       gap: 40px;
-      padding: 50px 0 10px 20px;
+      padding: 100px 0 10px 20px;
       border-top: none;
+
+      @include medium-screen {
+        padding: 50px 0 10px 20px;
+      }
     }
 }

@@ -35,8 +35,13 @@
 
 
         .about {
+            width: 95%;
             @include flex-column;
             justify-content: space-between;
+
+            @include medium-screen {
+                width: auto;
+            }
             
             span {
                 font-size: $text-small;
