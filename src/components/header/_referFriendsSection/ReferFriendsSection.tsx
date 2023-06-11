@@ -26,6 +26,7 @@ const ReferFriendsSection: FC = (): ReactElement => {
   // STATES
   const [error, setError] = useState<string>("");
   const [emailEnteredSuccessfully, setEmailEnteredSuccessfully] = useState<boolean>(false);
+  const [referralInputValue] = useState<string>("https://ratepunk.com/referral");
   const [isLoading, setLoading] = useState<boolean>(false);
 
   // EMAIL VALIDATION
@@ -90,6 +91,15 @@ const ReferFriendsSection: FC = (): ReactElement => {
   };
 
 
+  // COPY REFERRAL LINK
+  const handleReferralLinkCopy = () => {
+      navigator.clipboard.writeText(referralInputValue)
+      .then(() => {
+        console.log("Text coppied successfully!");
+      });
+  };
+
+
   return (
     <section className={styles.referFriendsSection}>
       <Container>
@@ -128,8 +138,8 @@ const ReferFriendsSection: FC = (): ReactElement => {
                 </div>
 
                 <div className={styles.referralInput}>
-                  <input type="text" placeholder="https://ratepunk.com/referral" />
-                  <button>{screenWidth >= 800 ? "Copy" : "Copy URL"}</button>
+                  <input type="text" value={referralInputValue} onChange={(e) => e.target.value}/>
+                  <button onClick={handleReferralLinkCopy}>{screenWidth >= 800 ? "Copy" : "Copy URL"}</button>
 
                 </div>
               </div>
