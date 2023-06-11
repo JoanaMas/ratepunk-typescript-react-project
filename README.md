@@ -1,34 +1,80 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Ratepunk Typescript React Project by Joana Mastianica
 
-## Getting Started
+## About The Project
 
-First, run the development server:
+This project was undertaken to apply for the Frontend Developer (ReactJS) position at the company Ratepunk. The main objective was to develop a single page landing desktop and mobile frontend application according to the company's send web page [design](https://xd.adobe.com/view/71b314b1-abe5-4705-8721-c8608a7eb26d-24e0/screen/4a89ddc1-a36c-4915-9a17-2fef477939f8).
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+Moreover, this project provided an excellent opportunity to gain proficiency in Typescript, learn new technologies that I never worked before with such as Next.js & JSONBIN.io, improve project structuring, develop reusable components, and implement them across various sections of the application. It was a great challenge to work with professional website design and try to create a pixel perfect website, exploring various tools for fonts and colors recognition. <br><br>
+
+## Project requirements:
+
+* Typescript
+* React
+* Next.js
+* Sass modules
+* JSONBIN.io to store & update data
+  
+<br>
+
+## Project Functionalities
+
+* Landing page displays form where user can enter its email.
+* Upon successful email entering, the user presented with a success message and referral URL.
+* Upon failed email entering, the user presented with an error message.
+* User can copy referral URL.
+* Responsive desktop & mobile UI.
+* Unfolding mobile hamburger menu.
+
+<br>
+
+## Application example
+
+<br>
+
+![](../ratepunk-typescript-react-project/public/assets/ratepunk-project-gif.gif)
+
+<br>
+
+## Technologies Used
+
+* Typescript 
+* React framework
+* Next.js
+* SCSS modules for styling
+* Eslint for code problems active spotting
+* JSONBIN.io for storing data
+
+<br>
+
+## To Run Application 
+
+<br>
+
+
+1. Save the project to your local environment from my [github repository.](https://github.com/JoanaMas/ratepunk-typescript-react-project)
+
+<br>
+
+2. Navigate to the [src](./src) folder & with the right mouse click open the integrated terminal. Run these commands in order to successfully launch the project:<br><br>
+
+Install libraries:
+
+```
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Launch Project:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```
+npm run dev
+```
 
-## Learn More
+<br>
 
-To learn more about Next.js, take a look at the following resources:
+3. Copy project URL given in an integrated terminal to your browser. Or [click here](http://localhost:3000/) to open the application only after completing previous steps.<br><br>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+# View code:
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+You can view the code of the application in the [Online GitHub Editor](https://github.dev/JoanaMas/ratepunk-typescript-react-project).
