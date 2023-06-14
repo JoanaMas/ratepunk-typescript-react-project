@@ -3,13 +3,13 @@ import React, { FC, ReactElement } from "react";
 import ReferFriendsSection from "./_referFriendsSection/ReferFriendsSection";
 import VisitStoreSection from "./_visitStoreSection/VisitStoreSection";
 
-const Header: FC = (): ReactElement => {
+const MainSections: FC = (): ReactElement => {
   return (
     <header>
-        <ReferFriendsSection />
-        <VisitStoreSection />
+      <ReferFriendsSection />
+      <VisitStoreSection />
     </header>
   );
 };
 
-export default Header;
+export default MainSections;
