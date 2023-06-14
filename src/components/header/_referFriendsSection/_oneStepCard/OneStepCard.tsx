@@ -23,7 +23,7 @@ const OneStepCard: FC<OneStepCardProps> = (props): ReactElement => {
     
     return (
         <div className={`${styles.oneStepContainer} ${otherClasses}`}>
-            <Image src={imageSource} alt={imageAltText} width={screenWidth > 800 ? 100 : 140} />
+            <Image src={imageSource} alt={imageAltText} width={screenWidth > 800 ? 100 : 140} height={screenWidth > 800 ? 100 : 140} />
             <div className={styles.stepContent}>
                 <h4>STEP {cardStepNumber}</h4>
                 <h2>{cardHeading}</h2>

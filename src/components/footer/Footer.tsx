@@ -29,7 +29,7 @@ const Footer: FC = (): ReactElement => {
         <div className={styles.footerContentContainer}>
 
           <div className={styles.about}>
-            <Image src={logoImage} alt="logo" width={100} />
+            <Image src={logoImage} alt="logo" width={100} height={100} />
             <p>Ratepunk compares hotel room prices across the major online travel agencies. When you search for a room, Ratepunk extension scans the top booking sites and runs a price comparison, so you can be confident in knowing you`re getting the best deal!</p>
             <span className={screenWidth >= 800 ? "" : styles.displayNone}>© 2021 Ratepunk. All Rights Reserved.</span>
           </div>
@@ -48,7 +48,7 @@ const Footer: FC = (): ReactElement => {
             <div>
               <h4>CONTACT</h4>
               <div className={styles.email}>
-                <Image src={emailIcon} alt="emailIcon" width={15} />
+                <Image src={emailIcon} alt="emailIcon" width={15} height={15} />
                 <a href="mailto: hi@ratepunk.com">hi@ratepunk.com</a>
               </div>
             </div>
@@ -56,11 +56,11 @@ const Footer: FC = (): ReactElement => {
             <div>
               <h4>SOCIAL</h4>
               <div className={styles.socialLinks}>
-                <div className={styles.link}><Image src={instagramIcon} alt="instagramIcon" /></div>
-                <div className={styles.link}><Image src={facebookIcon} alt="facebookIcon" /></div>
-                <div className={styles.link}><Image src={linkedinIcon} alt="linkedinIcon" /></div>
-                <div className={styles.link}><Image src={twitterIcon} alt="twitterIcon" /></div>
-                <div className={styles.link}><Image src={tiktokIcon} alt="tiktokIcon" /></div>
+                <div className={styles.link}><Image src={instagramIcon} alt="instagramIcon" width={15} height={15} /></div>
+                <div className={styles.link}><Image src={facebookIcon} alt="facebookIcon" width={15} height={15} /></div>
+                <div className={styles.link}><Image src={linkedinIcon} alt="linkedinIcon" width={15} height={15} /></div>
+                <div className={styles.link}><Image src={twitterIcon} alt="twitterIcon" width={15} height={15} /></div>
+                <div className={styles.link}><Image src={tiktokIcon} alt="tiktokIcon" width={15} height={15} /></div>
               </div>
             </div>
           </div>

@@ -19,7 +19,7 @@ const StoreCard: FC<StoreCardProps> = (props): ReactElement => {
         <Link href={linkURL}>
 
             <div className={styles.storeCard}>
-                <Image src={storeImage} alt={imageAltText} width={50}></Image>
+                <Image src={storeImage} alt={imageAltText} width={50} height={50}></Image>
                 <div>
                     <span>available in the</span>
                     <h4>{storeName}</h4>

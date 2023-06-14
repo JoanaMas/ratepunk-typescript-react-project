@@ -20,7 +20,7 @@ const SuccessReferralContainer: FC<SuccessReferralContainerProps> = (props): Rea
         <div className={emailEnteredSuccessfullyState ? styles.successInputContainer : styles.displayNone}>
 
             <div className={styles.successMessage}>
-                <Image src={successIcon} alt="successIcon" width={25} />
+                <Image src={successIcon} alt="successIcon" width={25} height={25} />
                 <span>Your email is confirmed!</span>
             </div>
 
