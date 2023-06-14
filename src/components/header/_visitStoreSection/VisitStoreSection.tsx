@@ -1,5 +1,4 @@
 import React, { FC, ReactElement } from "react";
-import Image from "next/image";
 // Components
 import Container from "@/components/container/Container";
 import StoreCard from "./_storeCard/StoreCard";

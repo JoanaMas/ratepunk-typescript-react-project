@@ -1,19 +1,14 @@
-import React, { FC, ReactElement, useState, useEffect } from "react";
-import { useWindowSize } from "@react-hook/window-size";
+import React, { FC, ReactElement } from "react";
 // Components
 import NavLink from "../_navLink/NavLink";
+// Custom Hook
+import useWindowWidth from "@/hooks/windowWidth";
 // Style
 import styles from "./mobileLinks.module.scss";
 
 const MobileLinks: FC = (): ReactElement => {
 
-    // WINDO WIDTH ON RESIZE LOGIC
-    const [windowWidth] = useWindowSize();
-    const [screenWidth, setScreenWidth] = useState(0);
-  
-    useEffect(() => {
-      setScreenWidth(windowWidth);
-    }, [windowWidth]);
+  const { screenWidth } = useWindowWidth();
 
   return (
       <div className={styles.mobileMenuContainer}>

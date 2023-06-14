@@ -1,6 +1,7 @@
-import React, { FC, ReactElement, useEffect, useState } from "react";
-import { useWindowSize } from "@react-hook/window-size";
+import React, { FC, ReactElement } from "react";
 import Image from "next/image";
+// Custom Hook
+import useWindowWidth from "@/hooks/windowWidth";
 // Styles
 import styles from "./oneStepCard.module.scss";
 
@@ -18,12 +19,11 @@ const OneStepCard: FC<OneStepCardProps> = (props): ReactElement => {
 
     const { imageSource, imageAltText, cardStepNumber, cardHeading, cardText, otherClasses } = props;
 
-    // WINDO WIDTH ON RESIZE LOGIC
-    const [windowWidth] = useWindowSize();
-
+    const { screenWidth } = useWindowWidth();
+    
     return (
         <div className={`${styles.oneStepContainer} ${otherClasses}`}>
-            <Image src={imageSource} alt={imageAltText} width={windowWidth > 800 ? 100 : 140} />
+            <Image src={imageSource} alt={imageAltText} width={screenWidth > 800 ? 100 : 140} />
             <div className={styles.stepContent}>
                 <h4>STEP {cardStepNumber}</h4>
                 <h2>{cardHeading}</h2>

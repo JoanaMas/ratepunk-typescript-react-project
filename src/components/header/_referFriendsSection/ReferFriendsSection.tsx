@@ -2,7 +2,6 @@
 
 import React, { FC, ReactElement, useState, useEffect, useRef } from "react";
 import { useWindowSize } from "@react-hook/window-size";
-import Image from "next/image";
 // Components
 import Container from "@/components/container/Container";
 import OneStepCard from "./_oneStepCard/OneStepCard";
@@ -13,7 +12,8 @@ import emailIcon from "../../../../public/assets/email.svg";
 import inviteLetterIcon from "../../../../public/assets/invite.svg";
 import collectCoinIcon from "../../../../public/assets/collect-coins.svg";
 import voucherIcon from "../../../../public/assets/voucher.svg";
-import successIcon from "../../../../public/assets/success.svg";
+// Custom Hook
+import useWindowWidth from "@/hooks/windowWidth";
 // Helpers
 import { validateEmail } from "@/helpers/validateEmail";
 import { handleReferralLinkCopy } from "@/helpers/handleReferralLinkCopy";
@@ -30,19 +30,12 @@ const ReferFriendsSection: FC = (): ReactElement => {
   const [emailEnteredSuccessfully, setEmailEnteredSuccessfully] = useState<boolean>(false);
   const [referralInputValue] = useState<string>("https://ratepunk.com/referral");
   const [isLoading, setLoading] = useState<boolean>(false);
+  const { screenWidth } = useWindowWidth();
 
   // EMAIL VALIDATION
   useEffect(() => {
     validateEmail(emailInputRef.current?.value);
   }, [emailInputRef.current?.value]);
-
-  // WINDO WIDTH ON RESIZE LOGIC
-  const [windowWidth] = useWindowSize();
-  const [screenWidth, setScreenWidth] = useState(0);
-
-  useEffect(() => {
-    setScreenWidth(windowWidth);
-  }, [windowWidth]);
 
 
   // UPDATE REQUEST TO JSONBin.io

@@ -1,8 +1,7 @@
 "use client";
 
-import React, { FC, ReactElement, useEffect, useState } from "react";
+import React, { FC, ReactElement } from "react";
 import Image from "next/image";
-import { useWindowSize } from "@react-hook/window-size";
 // Components
 import Container from "../container/Container";
 import NavLink from "../navbar/_navLink/NavLink";
@@ -14,19 +13,14 @@ import facebookIcon from "../../../public/assets/facebook.svg";
 import linkedinIcon from "../../../public/assets/linkedin.svg";
 import twitterIcon from "../../../public/assets/twitter.svg";
 import tiktokIcon from "../../../public/assets/tiktok.svg";
-
+// Custom Hook
+import useWindowWidth from "@/hooks/windowWidth";
 // Styles
 import styles from "./footer.module.scss";
 
 const Footer: FC = (): ReactElement => {
 
-    // WINDO WIDTH ON RESIZE LOGIC
-    const [windowWidth] = useWindowSize();
-    const [screenWidth, setScreenWidth] = useState(0);
-  
-    useEffect(() => {
-      setScreenWidth(windowWidth);
-    }, [windowWidth]);
+    const { screenWidth } = useWindowWidth();
 
   return (
     <footer className={styles.footer}>

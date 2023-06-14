@@ -1,5 +1,4 @@
 import React, { FC, ReactElement } from "react";
-import Image from "next/image";
 // Components
 import NavLink from "../_navLink/NavLink";
 // Style
